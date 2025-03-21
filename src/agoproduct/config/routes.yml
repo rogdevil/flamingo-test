@@ -1,0 +1,20 @@
+# REST API routes for products
+- path: /products/:id
+  controller: ProductController
+  action: GetProduct
+  method: GET
+
+- path: /products
+  controller: ProductController
+  action: CreateProduct
+  method: POST
+
+- path: /products/:id
+  controller: ProductController
+  action: UpdateProduct
+  method: PUT
+
+- path: /products/:id
+  controller: ProductController
+  action: DeleteProduct
+  method: DELETE

@@ -1,0 +1,18 @@
+flamingo.session.cookie.secure: false
+
+commerce:
+  product:
+    fakeservice:
+      enabled: true
+
+postgres:
+  user: "postgres"
+  password: "supersecurepassword"
+  host: "localhost"
+  port: 5432
+  dbname: "flamingo_db"
+  sslmode: "disable"
+
+
+db:
+  dsn: "postgres://postgres:postgres@localhost:5432/products?sslmode=disable"
