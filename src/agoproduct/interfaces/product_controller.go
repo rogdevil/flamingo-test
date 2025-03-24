@@ -3,6 +3,7 @@ package interfaces
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"strconv"
 
 	"github.com/rogdevil/ago/src/agoproduct/domain"
@@ -44,6 +45,7 @@ func (c *ProductController) GetProduct(ctx context.Context, req *web.Request) we
 
 // CreateProduct handles POST /products
 func (c *ProductController) CreateProduct(ctx context.Context, req *web.Request) web.Result {
+	fmt.Println("CreateProduct")
 	var product domain.Product
 	if err := json.NewDecoder(req.Request().Body).Decode(&product); err != nil {
 		return c.responder.Data(map[string]interface{}{
@@ -51,6 +53,8 @@ func (c *ProductController) CreateProduct(ctx context.Context, req *web.Request)
 			"body":   "Invalid request body",
 		})
 	}
+
+	fmt.Println("product", product)
 
 	if err := c.repo.Create(&product); err != nil {
 		return c.responder.Data(map[string]interface{}{
