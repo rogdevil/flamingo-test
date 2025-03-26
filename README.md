@@ -23,3 +23,7 @@ This is a Go application that provides a web service. You can run it either usin
     go mod download
     go run main.go serve
     ```
+4. Run frontend
+    ```bash
+    cd ago-fe && npm run dev
+    ```

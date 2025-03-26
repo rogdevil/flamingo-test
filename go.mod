@@ -54,6 +54,7 @@ require (
 	github.com/prometheus/statsd_exporter v0.22.7 // indirect
 	github.com/rbcervilla/redisstore/v9 v9.0.0 // indirect
 	github.com/redis/go-redis/v9 v9.7.0 // indirect
+	github.com/rs/cors v1.11.1
 	github.com/shopspring/decimal v1.2.0 // indirect
 	github.com/sosodev/duration v1.3.1 // indirect
 	github.com/spf13/cobra v1.9.1 // indirect

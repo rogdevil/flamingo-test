@@ -8,6 +8,7 @@ import (
 	"github.com/rogdevil/ago/src/agoproduct/domain"
 	"github.com/rogdevil/ago/src/agoproduct/infrastructure"
 	"github.com/rogdevil/ago/src/agoproduct/interfaces"
+	"github.com/rogdevil/ago/src/agoproduct/middleware"
 )
 
 type Module struct{}
@@ -36,6 +37,12 @@ func (r *routes) Inject(productController *interfaces.ProductController) *routes
 // Routes method registers the routes
 func (r *routes) Routes(registry *web.RouterRegistry) {
 	// Register routes for CRUD operations
+
+	corsHandler := middleware.CorsHandler{}
+	// Get all products (paginated)
+	registry.MustRoute("/products/paginated", "product.getAllPaginated")
+	registry.HandleOptions("product.getAllPaginated", web.WrapHTTPHandler(corsHandler.PreflightHandler()))
+	registry.HandleGet("product.getAllPaginated", r.productController.GetProductsPaginated)
 
 	// GET /products/:id - Get a product by ID
 	registry.MustRoute("/products/:id", "product.get")
