@@ -49,6 +49,7 @@ func (c *ProductController) GetProduct(ctx context.Context, req *web.Request) we
 
 // GetProductsPaginated handles GET /products/paginated?page=1&pageSize=10
 func (c *ProductController) GetProductsPaginated(ctx context.Context, req *web.Request) web.Result {
+	fmt.Println("GetProductsPaginated")
 	page, err := strconv.Atoi(req.Request().URL.Query().Get("page"))
 	fmt.Println("page", page)
 	if err != nil || page < 1 {
@@ -80,7 +81,7 @@ func (c *ProductController) GetProductsPaginated(ctx context.Context, req *web.R
 	result.Header.Set("Access-Control-Allow-Headers", "*")
 	result.Header.Set("Access-Control-Allow-Origin", "*")
 
-	fmt.Println("result", result)
+	fmt.Println("result", result.Header)
 
 	return result
 }
