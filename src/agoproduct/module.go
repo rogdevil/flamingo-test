@@ -39,7 +39,7 @@ func (r *routes) Routes(registry *web.RouterRegistry) {
 
 	// Get all products (paginated)
 	registry.MustRoute("/products/paginated", "product.getAllPaginated")
-	registry.HandleOptions("product.getAllPaginated", r.productController.GetProductsPaginated)
+	registry.HandleOptions("product.getAllPaginated", r.productController.Options)
 	registry.HandleGet("product.getAllPaginated", r.productController.GetProductsPaginated)
 
 	// GET /products/:id - Get a product by ID
