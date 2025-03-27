@@ -3,7 +3,7 @@ package helloworld
 import (
 	"flamingo.me/dingo"
 	"flamingo.me/flamingo/v3/framework/web"
-	"github.com/rogdevil/ago/src/helloworld/interfaces"
+	"github.com/rogdevil/flamingo-test/src/helloworld/interfaces"
 )
 
 type Module struct{}
