@@ -5,10 +5,9 @@ import (
 
 	"flamingo.me/dingo"
 	"flamingo.me/flamingo/v3/framework/web"
-	"github.com/rogdevil/ago/src/agoproduct/domain"
-	"github.com/rogdevil/ago/src/agoproduct/infrastructure"
-	"github.com/rogdevil/ago/src/agoproduct/interfaces"
-	"github.com/rogdevil/ago/src/agoproduct/middleware"
+	"github.com/rogdevil/flamingo-test/src/agoproduct/domain"
+	"github.com/rogdevil/flamingo-test/src/agoproduct/infrastructure"
+	"github.com/rogdevil/flamingo-test/src/agoproduct/interfaces"
 )
 
 type Module struct{}
@@ -38,11 +37,14 @@ func (r *routes) Inject(productController *interfaces.ProductController) *routes
 func (r *routes) Routes(registry *web.RouterRegistry) {
 	// Register routes for CRUD operations
 
-	corsHandler := middleware.CorsHandler{}
 	// Get all products (paginated)
 	registry.MustRoute("/products/paginated", "product.getAllPaginated")
-	registry.HandleOptions("product.getAllPaginated", web.WrapHTTPHandler(corsHandler.PreflightHandler()))
 	registry.HandleGet("product.getAllPaginated", r.productController.GetProductsPaginated)
+	registry.MustRoute("/products", "products.options")
+	registry.HandleOptions("products.options", r.productController.Options)
+
+	registry.MustRoute("/products/:id", "product.options")
+	registry.HandleOptions("product.options", r.productController.Options)
 
 	// GET /products/:id - Get a product by ID
 	registry.MustRoute("/products/:id", "product.get")

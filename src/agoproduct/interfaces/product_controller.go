@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/rogdevil/ago/src/agoproduct/domain"
+	"github.com/rogdevil/flamingo-test/src/agoproduct/domain"
 
 	"flamingo.me/flamingo/v3/framework/web"
 )
@@ -152,4 +152,14 @@ func (c *ProductController) DeleteProduct(ctx context.Context, req *web.Request)
 		"status": 204,
 		"body":   "Product deleted successfully",
 	})
+}
+
+func (c *ProductController) Options(ctx context.Context, req *web.Request) web.Result {
+	result := c.responder.Data(map[string]interface{}{})
+
+	result.Header.Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+	result.Header.Set("Access-Control-Allow-Headers", "*")
+	result.Header.Set("Access-Control-Allow-Origin", "*")
+
+	return result
 }
