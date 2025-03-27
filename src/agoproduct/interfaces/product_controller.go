@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/rogdevil/ago/src/agoproduct/domain"
+	"github.com/rogdevil/flamingo-test/src/agoproduct/domain"
 
 	"flamingo.me/flamingo/v3/framework/web"
 )

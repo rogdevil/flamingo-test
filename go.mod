@@ -1,4 +1,4 @@
-module github.com/rogdevil/ago
+module github.com/rogdevil/flamingo-test
 
 go 1.24.1
 

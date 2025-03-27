@@ -5,9 +5,9 @@ import (
 
 	"flamingo.me/dingo"
 	"flamingo.me/flamingo/v3/framework/web"
-	"github.com/rogdevil/ago/src/agoproduct/domain"
-	"github.com/rogdevil/ago/src/agoproduct/infrastructure"
-	"github.com/rogdevil/ago/src/agoproduct/interfaces"
+	"github.com/rogdevil/flamingo-test/src/agoproduct/domain"
+	"github.com/rogdevil/flamingo-test/src/agoproduct/infrastructure"
+	"github.com/rogdevil/flamingo-test/src/agoproduct/interfaces"
 )
 
 type Module struct{}

@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/rogdevil/ago/src/agoproduct/domain"
+	"github.com/rogdevil/flamingo-test/src/agoproduct/domain"
 )
 
 type ProductRepositoryImpl struct {

@@ -3,8 +3,8 @@ package main
 import (
 	"flamingo.me/dingo"
 	"flamingo.me/flamingo/v3"
-	"github.com/rogdevil/ago/src/agoproduct"
-	helloworld "github.com/rogdevil/ago/src/helloWorld"
+	"github.com/rogdevil/flamingo-test/src/agoproduct"
+	helloworld "github.com/rogdevil/flamingo-test/src/helloWorld"
 )
 
 func main() {
