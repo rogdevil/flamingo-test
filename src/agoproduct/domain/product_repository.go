@@ -8,6 +8,7 @@ type Product struct {
 
 type ProductRepository interface {
 	FindByID(id int) (*Product, error)
+	FindAll(page, pageSize int) ([]*Product, int, error)
 	Create(product *Product) error
 	Update(product *Product) error
 	Delete(id int) error

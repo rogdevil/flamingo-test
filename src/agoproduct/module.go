@@ -37,6 +37,9 @@ func (r *routes) Inject(productController *interfaces.ProductController) *routes
 func (r *routes) Routes(registry *web.RouterRegistry) {
 	// Register routes for CRUD operations
 
+	// Get all products (paginated)
+	registry.MustRoute("/products/paginated", "product.getAllPaginated")
+	registry.HandleGet("product.getAllPaginated", r.productController.GetProductsPaginated)
 	registry.MustRoute("/products", "products.options")
 	registry.HandleOptions("products.options", r.productController.Options)
 

@@ -41,6 +41,44 @@ func (r *ProductRepositoryImpl) FindByID(id int) (*domain.Product, error) {
 	return product, nil
 }
 
+func (r *ProductRepositoryImpl) FindAll(page, pageSize int) ([]*domain.Product, int, error) {
+	fmt.Println("FindAll", page, pageSize)
+	// Calculate offset
+	offset := (page - 1) * pageSize
+
+	// Get total count of products
+	var totalCount int
+	countQuery := "SELECT COUNT(*) FROM products"
+	err := r.db.QueryRow(countQuery).Scan(&totalCount)
+	if err != nil {
+		return nil, 0, err
+	}
+
+	// Get paginated products
+	query := "SELECT id, name, price FROM products LIMIT $1 OFFSET $2"
+	rows, err := r.db.Query(query, pageSize, offset)
+	if err != nil {
+		return nil, 0, err
+	}
+	defer rows.Close()
+
+	var products []*domain.Product
+	for rows.Next() {
+		product := &domain.Product{}
+		err := rows.Scan(&product.ID, &product.Name, &product.Price)
+		if err != nil {
+			return nil, 0, err
+		}
+		products = append(products, product)
+	}
+
+	if err = rows.Err(); err != nil {
+		return nil, 0, err
+	}
+
+	return products, totalCount, nil
+}
+
 func (r *ProductRepositoryImpl) Create(product *domain.Product) error {
 	fmt.Println("Create", product.Name, product.Price, product.ID)
 	query := "INSERT INTO products (name, price) VALUES ($1, $2) RETURNING id"
