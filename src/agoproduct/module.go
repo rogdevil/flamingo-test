@@ -40,17 +40,16 @@ func (r *routes) Routes(registry *web.RouterRegistry) {
 	// Get all products (paginated)
 	registry.MustRoute("/products/paginated", "product.getAllPaginated")
 	registry.HandleGet("product.getAllPaginated", r.productController.GetProductsPaginated)
-	registry.MustRoute("/products", "products.options")
-	registry.HandleOptions("products.options", r.productController.Options)
-
-	registry.MustRoute("/products/:id", "product.options")
-	registry.HandleOptions("product.options", r.productController.Options)
 
 	// GET /products/:id - Get a product by ID
+	registry.MustRoute("/products/:id", "product.options")
+	registry.HandleOptions("product.options", r.productController.Options)
 	registry.MustRoute("/products/:id", "product.get")
 	registry.HandleGet("product.get", r.productController.GetProduct)
 
 	// POST /products - Create a new product
+	registry.MustRoute("/products", "products.options")
+	registry.HandleOptions("products.options", r.productController.Options)
 	registry.MustRoute("/products", "product.create")
 	registry.HandlePost("product.create", r.productController.CreateProduct)
 

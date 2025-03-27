@@ -69,13 +69,20 @@ func (c *ProductController) GetProductsPaginated(ctx context.Context, req *web.R
 		})
 	}
 
-	return c.responder.Data(map[string]interface{}{
+	result := c.responder.Data(map[string]interface{}{
 		"products":   products,
 		"totalCount": totalCount,
 		"page":       page,
 		"pageSize":   pageSize,
 		"totalPages": (totalCount + pageSize - 1) / pageSize,
 	})
+	result.Header.Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+	result.Header.Set("Access-Control-Allow-Headers", "*")
+	result.Header.Set("Access-Control-Allow-Origin", "*")
+
+	fmt.Println("result", result)
+
+	return result
 }
 
 // CreateProduct handles POST /products
