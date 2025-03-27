@@ -37,6 +37,12 @@ func (r *routes) Inject(productController *interfaces.ProductController) *routes
 func (r *routes) Routes(registry *web.RouterRegistry) {
 	// Register routes for CRUD operations
 
+	registry.MustRoute("/products", "products.options")
+	registry.HandleOptions("products.options", r.productController.Options)
+
+	registry.MustRoute("/products/:id", "product.options")
+	registry.HandleOptions("product.options", r.productController.Options)
+
 	// GET /products/:id - Get a product by ID
 	registry.MustRoute("/products/:id", "product.get")
 	registry.HandleGet("product.get", r.productController.GetProduct)
