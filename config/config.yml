@@ -1,23 +1,54 @@
 flamingo.session.cookie.secure: false
 
 commerce:
-  product:
-    fakeservice:
+  pagination:
+    defaultPageSize: 8
+    showAroundActivePageAmount: 2
+  cart:
+    defaultCartAdapter:
       enabled: true
+      defaultTaxRate: 19
+    placeOrderLogger:
+        enabled: true
+        useFlamingoLog: true
+        logAsFile: true
+        logDirectory: "./orders/"
+    defaultDeliveryCode: delivery
+    enableCartCache: false
+  checkout:
+    showEmptyCartPageIfNoItems: true
+  payment:
+    enableOfflinePaymentGateway: true
+  customer:
+    useNilCustomerAdapter: true
+  category:
+    useCategoryFixedAdapter: false
 
-postgres:
-  user: "postgres"
-  password: "supersecurepassword"
-  host: "localhost"
-  port: 5432
-  dbname: "flamingo_db"
-  sslmode: "disable"
+graphql:
+  introspectionEnabled: true # should be turned off in prod env
 
-db:
-  driver: "postgres"
-  host: "localhost"
-  port: 5432
-  username: "agoAdmin"
-  password: "root@123"
-  database: "ago"
-  sslmode: "disable"
+
+flamingoCommerceAdapterStandalone:
+  csvindexing:
+    products:
+      file:
+        path: "resources/products/products_en.csv"
+        delimiter: ","
+    categories:
+      file:
+        path: "resources/products/categories.csv"
+        delimiter: ","
+    locale: "en_GB"
+    currency: "GBP"
+  commercesearch:
+    enableIndexing: true
+    repositoryAdapter: bleve
+    bleveAdapter:
+      enableCategoryFacet: true
+      facetConfig:
+      - attributeCode: brandCode
+        amount: 10
+  emailplaceorder:
+    emailAddress: "flamingo@flamingo.me"
+    fromMail: "flamingo@flamingo.me"
+    fromName: "Flamingo Webstore"

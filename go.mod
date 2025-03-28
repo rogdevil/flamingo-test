@@ -8,10 +8,48 @@ require (
 )
 
 require (
+	flamingo.me/form v1.1.3 // indirect
+	github.com/RoaringBitmap/roaring v0.4.23 // indirect
+	github.com/blevesearch/bleve v1.0.12 // indirect
+	github.com/blevesearch/go-porterstemmer v1.0.3 // indirect
+	github.com/blevesearch/mmap-go v1.0.2 // indirect
+	github.com/blevesearch/segment v0.9.0 // indirect
+	github.com/blevesearch/snowballstem v0.9.0 // indirect
+	github.com/blevesearch/zap/v11 v11.0.12 // indirect
+	github.com/blevesearch/zap/v12 v12.0.12 // indirect
+	github.com/blevesearch/zap/v13 v13.0.4 // indirect
+	github.com/blevesearch/zap/v14 v14.0.3 // indirect
+	github.com/blevesearch/zap/v15 v15.0.1 // indirect
+	github.com/couchbase/vellum v1.0.2 // indirect
+	github.com/disintegration/imaging v1.6.2 // indirect
+	github.com/etgryphon/stringUp v0.0.0-20121020160746-31534ccd8cac // indirect
+	github.com/gabriel-vasile/mimetype v1.4.8 // indirect
+	github.com/glycerine/go-unsnap-stream v0.0.0-20181221182339-f9677308dec2 // indirect
+	github.com/go-playground/form v3.1.4+incompatible // indirect
+	github.com/go-playground/form/v4 v4.2.1 // indirect
+	github.com/go-playground/locales v0.14.1 // indirect
+	github.com/go-playground/universal-translator v0.18.1 // indirect
+	github.com/go-playground/validator/v10 v10.25.0 // indirect
+	github.com/golang/snappy v0.0.4 // indirect
+	github.com/google/go-cmp v0.6.0 // indirect
+	github.com/leebenson/conform v1.2.2 // indirect
+	github.com/leodido/go-urn v1.4.0 // indirect
+	github.com/mschoch/smat v0.2.0 // indirect
+	github.com/philhofer/fwd v1.0.0 // indirect
+	github.com/steveyen/gtreap v0.1.0 // indirect
+	github.com/tinylib/msgp v1.1.0 // indirect
+	github.com/willf/bitset v1.1.10 // indirect
+	go.etcd.io/bbolt v1.3.5 // indirect
+	golang.org/x/crypto v0.33.0 // indirect
+	golang.org/x/image v0.0.0-20191009234506-e7c1f5e7dbb8 // indirect
+)
+
+require (
 	contrib.go.opencensus.io/exporter/jaeger v0.2.1 // indirect
 	contrib.go.opencensus.io/exporter/prometheus v0.4.2 // indirect
 	contrib.go.opencensus.io/exporter/zipkin v0.1.2 // indirect
 	cuelang.org/go v0.0.15 // indirect
+	flamingo.me/flamingo-commerce-adapter-standalone v0.0.5-beta
 	flamingo.me/flamingo-commerce/v3 v3.12.0 // indirect
 	flamingo.me/flamingo/v3 v3.13.0 // indirect
 	flamingo.me/graphql v1.12.1 // indirect
