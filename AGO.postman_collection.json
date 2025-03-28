@@ -12,77 +12,171 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3322/products/1",
+					"raw": "http://localhost:3322/api/v1/products/awesome-retailer_1199867",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3322",
 					"path": [
+						"api",
+						"v1",
 						"products",
-						"1"
+						"awesome-retailer_1199867"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "createproduct",
+			"name": "getAllProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3322/search?page=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3322",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "phone",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "viewcart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3322/cart",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3322",
+					"path": [
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "additemDliveryToCart",
 			"request": {
 				"method": "POST",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"Name\": \"Sample Product 1\",\n    \"Price\": 19.99\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://localhost:3322/products",
+					"raw": "http://localhost:3322/cart/add/awesome-retailer_1199480?qty=2&deliveryCode=%2365/10,rana-neclave, india",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3322",
 					"path": [
-						"products"
+						"cart",
+						"add",
+						"awesome-retailer_1199480"
+					],
+					"query": [
+						{
+							"key": "qty",
+							"value": "2"
+						},
+						{
+							"key": "deliveryCode",
+							"value": "%2365/10,rana-neclave, india"
+						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "updateproduct",
+			"name": "removeItemFromCart",
 			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"ID\": 1,\n    \"Name\": \"Sample Product 2\",\n    \"Price\": 19.99\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
+				"method": "POST",
+				"header": [],
 				"url": {
-					"raw": "http://localhost:3322/products/1",
+					"raw": "http://localhost:3322/cart/delete/3380600495197500922?deliveryCode=%2365/10,rana-neclave, india",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3322",
 					"path": [
-						"products",
-						"1"
+						"cart",
+						"delete",
+						"3380600495197500922"
+					],
+					"query": [
+						{
+							"key": "deliveryCode",
+							"value": "%2365/10,rana-neclave, india"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cleanCart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3322/cart/clean",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3322",
+					"path": [
+						"cart",
+						"clean"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateItemQty",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3322/cart/update/3380600495197500922?qty=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3322",
+					"path": [
+						"cart",
+						"update",
+						"3380600495197500922"
+					],
+					"query": [
+						{
+							"key": "qty",
+							"value": "1"
+						}
 					]
 				}
 			},
